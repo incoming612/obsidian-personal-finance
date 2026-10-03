@@ -1,0 +1,9 @@
+{
+  "id": "personal-finance",
+  "name": "Finance",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "A lightweight personal finance dashboard for Obsidian.",
+  "author": "Personal",
+  "isDesktopOnly": false
+}
