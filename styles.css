@@ -2563,3 +2563,274 @@
   .finance-transaction-more { grid-column: 3; grid-row: 2; justify-self: end; }
   .finance-transaction-amount { grid-column: 3; grid-row: 1; align-self: end; }
 }
+/* Shopping wishlist — soft, theme-aware cards */
+.finance-shopping-page { display: flex; flex-direction: column; gap: 16px; }
+.finance-shopping-heading, .finance-shopping-card-top, .finance-shopping-dashboard-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.finance-shopping-heading .finance-panel-title { margin: 0; }
+.finance-shopping-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.finance-shopping-filter {
+  border: 1px solid var(--background-modifier-border); background: var(--background-secondary);
+  color: var(--text-muted); border-radius: 999px; padding: 6px 11px; cursor: pointer;
+}
+.finance-shopping-filter:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+.finance-shopping-filter.is-active { color: var(--text-on-accent); background: var(--interactive-accent); border-color: var(--interactive-accent); }
+.finance-shopping-list, .finance-shopping-preview-list { display: grid; gap: 12px; }
+.finance-shopping-card, .finance-shopping-dashboard {
+  border: 1px solid var(--background-modifier-border); border-radius: 20px;
+  background: var(--background-secondary); padding: 16px;
+}
+.finance-shopping-card { display: flex; flex-direction: column; gap: 10px; }
+.finance-shopping-name { padding: 0; border: 0; color: var(--text-normal); background: transparent; font-size: var(--font-ui-large); font-weight: 650; text-align: left; cursor: pointer; }
+.finance-shopping-name:hover { color: var(--text-accent); }
+.finance-shopping-price, .finance-shopping-preview-price { color: var(--text-normal); font-size: var(--font-ui-large); font-weight: 700; white-space: nowrap; }
+.finance-shopping-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.finance-shopping-chip, .finance-shopping-category {
+  display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 9px;
+  color: var(--text-muted); background: var(--background-primary); font-size: var(--font-ui-smaller);
+}
+.finance-shopping-chip.is-ready { color: var(--text-success); }
+.finance-shopping-chip.is-purchased { color: var(--text-accent); }
+.finance-shopping-chip.is-abandoned { color: var(--text-faint); }
+.finance-shopping-chip.is-priority-high { color: var(--text-error); }
+.finance-shopping-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-shopping-cooling { color: var(--text-accent); }
+.finance-shopping-copy, .finance-shopping-affordability, .finance-shopping-budget-hint, .finance-shopping-converted {
+  color: var(--text-muted); font-size: var(--font-ui-small); line-height: 1.5;
+}
+.finance-shopping-actions { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 3px; }
+.finance-shopping-actions button, .finance-shopping-empty button { border-radius: 999px; }
+.finance-shopping-dashboard { margin-block: 14px; }
+.finance-shopping-summary { color: var(--text-muted); font-size: var(--font-ui-small); }
+.finance-shopping-preview {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;
+  padding: 11px 12px; border: 0; border-radius: 14px; color: var(--text-normal);
+  background: var(--background-primary); text-align: left; cursor: pointer;
+}
+.finance-shopping-preview:hover { background: var(--background-modifier-hover); }
+.finance-shopping-preview-details { display: grid; min-width: 0; gap: 3px; }
+.finance-shopping-preview-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.finance-shopping-preview-cooling { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-shopping-dashboard-footer { justify-content: flex-end; margin-top: 8px; }
+.finance-shopping-detail-row { display: grid; grid-template-columns: minmax(105px, .7fr) minmax(0, 1.5fr); gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--background-modifier-border); }
+.finance-shopping-detail-label { color: var(--text-muted); }
+.finance-shopping-detail-value { color: var(--text-normal); overflow-wrap: anywhere; }
+.finance-shopping-modal textarea { min-height: 54px; }
+@media (max-width: 520px) {
+  .finance-shopping-card { padding: 13px; border-radius: 17px; }
+  .finance-shopping-card-top { align-items: flex-start; }
+  .finance-shopping-price { font-size: var(--font-ui-medium); }
+  .finance-shopping-actions button { font-size: var(--font-ui-smaller); }
+  .finance-shopping-detail-row { grid-template-columns: minmax(86px, .65fr) minmax(0, 1.35fr); }
+}
+.finance-refund { color: var(--color-green, var(--text-success)); }
+.finance-calendar-refund { color: var(--color-green, var(--text-success)); }
+.finance-account-role-badge { width: fit-content; padding: 1px 7px; border-radius: 999px; color: var(--text-accent); background: var(--background-modifier-hover); font-size: var(--font-smaller); }
+.finance-receivable-total { margin-left: 0.65rem; color: var(--text-muted); font-size: var(--font-smaller); font-weight: 500; }
+.finance-receivables-section { margin-top: var(--size-4-6); }
+.finance-receivable-list { display: grid; gap: var(--size-4-2); }
+.finance-receivable-card { display: flex; width: 100%; min-height: 68px; align-items: center; justify-content: space-between; gap: var(--size-4-4); padding: var(--size-4-4); border: 0; border-radius: var(--radius-l); color: var(--text-normal); background: var(--background-secondary); text-align: left; cursor: pointer; }
+.finance-receivable-card:hover { background: var(--background-modifier-hover); }
+.finance-receivable-main { display: grid; min-width: 0; gap: 4px; }
+.finance-receivable-title { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.finance-receivable-meta { color: var(--text-muted); font-size: var(--font-smaller); }
+.finance-receivable-amount { flex: 0 0 auto; font-weight: 650; }
+.finance-transaction-page-actions { display: flex; justify-content: flex-end; margin: 0 0 var(--size-4-3); }
+.finance-receivable-transactions { margin-top: var(--size-4-5); }
+.finance-receivable-transaction { width: 100%; color: var(--text-normal); text-align: left; }
+.finance-receivable-collection-row { display: flex; align-items: center; justify-content: space-between; gap: var(--size-4-3); padding: var(--size-4-2) 0; border-bottom: 1px solid var(--background-modifier-border); color: var(--text-muted); font-size: var(--font-smaller); }
+.finance-summary-metrics { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.finance-summary-card.is-clickable { cursor: pointer; }
+.finance-summary-card.is-clickable:hover { border-color: var(--interactive-accent); background: var(--background-modifier-hover); }
+.finance-summary-card.is-clickable:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
+.finance-pending-credit-modal { min-width: min(440px, 80vw); }
+.finance-pending-credit-total { margin: 0 0 var(--size-4-4); color: var(--text-normal); font-size: var(--font-ui-large); font-weight: var(--font-semibold); }
+.finance-pending-credit-list { display: grid; gap: var(--size-4-2); }
+.finance-pending-credit-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: var(--size-4-3); padding: var(--size-4-3); border-radius: var(--radius-m); background: var(--background-secondary); }
+.finance-pending-credit-details { display: grid; min-width: 0; gap: 4px; }
+.finance-pending-credit-amount { color: var(--text-error); font-weight: var(--font-semibold); white-space: nowrap; }
+.finance-hero-metric.is-clickable { cursor: pointer; transition: background-color 120ms ease; }
+.finance-hero-metric.is-clickable:hover { background: var(--background-modifier-hover); }
+.finance-hero-metric.is-clickable:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
+.finance-hero-metric-description { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-receivable-page-actions, .finance-receivable-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.finance-receivable-page-actions { margin-left: auto; }
+.finance-receivable-filters { margin: 14px 0; }
+.finance-receivable-filter { padding: 7px 12px; border: 0; border-radius: 999px; color: var(--text-muted); background: var(--background-secondary); cursor: pointer; }
+.finance-receivable-filter:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+.finance-receivable-filter.is-active { color: var(--text-on-accent); background: var(--interactive-accent); }
+.finance-receivable-project-list { display: grid; gap: 12px; }
+.finance-receivable-project { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--background-modifier-border); border-radius: 18px; background: var(--background-secondary); }
+.finance-receivable-project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.finance-receivable-status { flex: 0 0 auto; padding: 4px 9px; border-radius: 999px; color: var(--text-muted); background: var(--background-primary); font-size: var(--font-ui-smaller); }
+.finance-receivable-status.is-open { color: var(--text-accent); }
+.finance-receivable-status.is-settled { color: var(--text-success); }
+.finance-receivable-status.is-closed { color: var(--text-faint); }
+.finance-receivable-project-figures { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.finance-receivable-project-figure { display: grid; min-width: 0; gap: 5px; padding: 10px; border-radius: 12px; background: var(--background-primary); }
+.finance-receivable-project-figure-label { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-receivable-project-figure-value { overflow-wrap: anywhere; font-weight: var(--font-semibold); font-variant-numeric: tabular-nums; }
+.finance-receivable-project-figure.is-emphasis { background: color-mix(in srgb, var(--finance-sage) 10%, var(--background-primary)); }
+.finance-receivable-project-figure.is-emphasis .finance-receivable-project-figure-value { color: var(--finance-sage); }
+.finance-receivable-project-meta { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-receivable-project-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.finance-receivable-project-actions button, .finance-receivable-picker-row { border-radius: 999px; }
+.finance-receivable-picker-row { display: flex; width: 100%; justify-content: space-between; gap: 12px; padding: 12px; border: 0; color: var(--text-normal); background: var(--background-secondary); cursor: pointer; }
+
+.finance-account-receivable-summary { margin-top: var(--size-4-6); }
+.finance-account-receivable-summary-button { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 12px 20px; padding: 18px 20px; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-l); color: var(--text-normal); background: var(--background-secondary); text-align: left; cursor: pointer; }
+.finance-account-receivable-summary-button:hover { background: var(--background-modifier-hover); }
+.finance-account-receivable-summary-copy { display: grid; gap: 4px; }
+.finance-account-receivable-summary-title { font-weight: var(--font-semibold); }
+.finance-account-receivable-summary-count, .finance-account-receivable-summary-action { color: var(--text-muted); font-size: var(--font-smaller); }
+.finance-account-receivable-summary-amount { font-size: var(--font-ui-large); font-weight: var(--font-semibold); font-variant-numeric: tabular-nums; }
+.finance-receivables-back { align-self: center; border: 0; color: var(--text-muted); background: transparent; cursor: pointer; }
+.finance-receivables-back:hover { color: var(--text-normal); }
+@media (max-width: 520px) {
+  .finance-account-receivable-summary-button { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; padding: 14px; }
+  .finance-account-receivable-summary-action { grid-column: 1 / -1; }
+}
+.finance-receivable-picker-row:hover { background: var(--background-modifier-hover); }
+@media (max-width: 720px) {
+  .finance-receivable-project-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .finance-receivable-project-figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .finance-pending-credit-modal { min-width: 0; }
+  .finance-pending-credit-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .finance-pending-credit-amount { grid-column: 1; }
+  .finance-pending-credit-row .finance-small-action { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 520px) {
+  .finance-receivable-card { gap: var(--size-4-2); padding: var(--size-4-3); }
+  .finance-receivable-amount { font-size: var(--font-small); }
+  .finance-receivable-meta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+.finance-investments-overview { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 12px 0; }
+.finance-investments-metric { min-width: 0; padding: 16px; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-l); background: var(--background-secondary); }
+.finance-investments-metric.is-primary { background: color-mix(in srgb, var(--interactive-accent) 9%, var(--background-secondary)); }
+.finance-investments-metric-label, .finance-investments-caption { color: var(--text-muted); font-size: var(--font-ui-small); }
+.finance-investments-metric-value { margin-top: 7px; overflow-wrap: anywhere; font-size: var(--font-ui-large); font-weight: var(--font-semibold); font-variant-numeric: tabular-nums; }
+.finance-investments-caption { margin: 0 2px 16px; }
+.finance-investment-distribution, .finance-investment-accounts { margin-top: 16px; }
+.finance-investment-category-row { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(100px, 2fr) minmax(130px, auto); align-items: center; gap: 12px; padding: 9px 0; }
+.finance-investment-category-name { color: var(--text-normal); }
+.finance-investment-category-value { text-align: right; font-variant-numeric: tabular-nums; }
+.finance-investment-account-row { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 0; border-top: 1px solid var(--background-modifier-border); border-radius: 0; color: var(--text-normal); background: transparent; text-align: left; }
+.finance-investment-account-heading { display: flex; align-items: center; gap: 10px; }
+.finance-investment-account-value { text-align: right; font-variant-numeric: tabular-nums; }
+.finance-investment-account-market { font-weight: var(--font-semibold); }
+.finance-investment-account-return { margin-top: 4px; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-investment-history { display: grid; gap: 0; margin: 0 0 14px 36px; border-left: 2px solid var(--background-modifier-border); }
+.finance-investment-history-title { padding: 0 12px 7px; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-investment-snapshot { display: grid; grid-template-columns: minmax(90px, .7fr) minmax(140px, 1.2fr) minmax(150px, 1fr); gap: 10px; padding: 8px 12px; }
+.finance-investment-snapshot-date { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.finance-investment-snapshot-value { font-variant-numeric: tabular-nums; }
+.finance-investment-snapshot-return { color: var(--text-accent); font-variant-numeric: tabular-nums; }
+.finance-investment-summary { padding: 16px; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-l); background: var(--background-secondary); }
+.finance-investment-summary-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.finance-investment-summary-metric { min-width: 0; padding: 12px; border-radius: var(--radius-m); background: var(--background-primary); }
+.finance-investment-summary-label { color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.finance-investment-summary-value { margin-top: 5px; overflow-wrap: anywhere; font-weight: var(--font-semibold); font-variant-numeric: tabular-nums; }
+.finance-investment-summary-categories { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+@media (max-width: 900px) { .finance-investments-overview { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .finance-investments-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .finance-investment-category-row { grid-template-columns: 1fr auto; }
+  .finance-investment-category-row .finance-progress-track { grid-column: 1 / -1; grid-row: 2; }
+  .finance-investment-summary-metrics { grid-template-columns: 1fr; }
+  .finance-investment-account-row { align-items: flex-start; flex-direction: column; }
+  .finance-investment-account-value { width: 100%; text-align: left; }
+  .finance-investment-snapshot { grid-template-columns: 1fr; gap: 4px; }
+  .finance-investment-history { margin-left: 12px; }
+}
+.finance-tax-summary-grid,
+.finance-tax-dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: var(--size-4-2);
+  margin-block: var(--size-4-3);
+}
+
+.finance-tax-metric,
+.finance-tax-dashboard-metric {
+  min-width: 0;
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.finance-tax-metric.is-primary {
+  background: var(--background-modifier-hover);
+}
+
+.finance-tax-metric-label,
+.finance-tax-record-meta,
+.finance-tax-caption {
+  color: var(--text-muted);
+  font-size: var(--font-smaller);
+}
+
+.finance-tax-metric-value,
+.finance-tax-record-amount {
+  margin-top: var(--size-4-1);
+  color: var(--text-normal);
+  font-weight: var(--font-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.finance-tax-year-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-4-3);
+}
+
+.finance-tax-year-title {
+  margin: 0;
+}
+
+.finance-tax-record-list {
+  display: grid;
+  gap: var(--size-4-2);
+}
+
+.finance-tax-record-row {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.finance-tax-record-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.finance-tax-record-meta {
+  overflow-wrap: anywhere;
+}
+
+.finance-tax-record-amount {
+  white-space: nowrap;
+}
+
+.finance-tax-net-preview {
+  margin: 0 0 var(--size-4-2) var(--size-4-3);
+  color: var(--text-accent);
+  font-weight: var(--font-medium);
+}
+
+.finance-income-tax-detail {
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .finance-tax-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
